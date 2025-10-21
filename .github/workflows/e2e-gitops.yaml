@@ -85,7 +85,7 @@ jobs:
       - name: Update Deployment YAML
         run: |
           git pull
-          sed -i "s|image: ejayarma/training-repo:mario-game-.*$|image: ejayarma/training-repo:mario-game-${{ env.VERSION }}|" deployment.yaml
+          sed -i "s|image: ejayarma/training-repo:.*$|image: ejayarma/training-repo:mario-game-${{ env.VERSION }}|" deployment.yaml
           echo ${{ env.VERSION }} > version.txt
           CURRENT_VERSION=mario-game-${{ env.VERSION }}
           git add deployment.yaml version.txt
