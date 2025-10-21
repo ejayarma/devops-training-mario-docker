@@ -13,7 +13,7 @@ spec:
         app: supermariogame
     spec:
       containers:
-        - image: ejayarma/training-repo:mario-game-0
+        - image: ejayarma/training-repo:mario-game-5
           name: supermariogame-container
           ports:
             - containerPort: 8080
