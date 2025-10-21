@@ -21,7 +21,7 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       # If you wish to fail your job when the Quality Gate is red, uncomment the
       # following lines. This would typically be used to fail a deployment.
@@ -85,7 +85,7 @@ jobs:
       - name: Update Deployment YAML
         run: |
           git pull
-          sed -i "s|image: ejayarma/training-repo:.*$|image: ejayarma/training-repo:${{ env.VERSION }}|" deployment.yaml
+          sed -i "s|image: ejayarma/training-repo:mario-game-.*$|image: ejayarma/training-repo:mario-game-${{ env.VERSION }}|" deployment.yaml
           echo ${{ env.VERSION }} > version.txt
           CURRENT_VERSION=mario-game-${{ env.VERSION }}
           git add deployment.yaml version.txt
